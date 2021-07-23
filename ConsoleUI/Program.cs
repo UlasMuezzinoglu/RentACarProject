@@ -11,23 +11,56 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            BrandTest();
+            ColorTest();
+            CarTest();
+        }
+
+        private static void CarTest()
+        {
             CarManager carManager = new CarManager(new EfCarDal());
+            //carManager.Add(new Car() { BrandId = 1, ColorId = 2, ModelYear = 2019, DailyPrice = 180.00m, Description = "Programcıdan Hafif Kırık" });
+            //carManager.Update(new Car() { Id = 1 ,BrandId = 1, ColorId = 2, ModelYear = 2019, DailyPrice = 180.00m, Description = "Bebek Gibi Araba" });
+            //carManager.Delete(new Car() { Id = 2});
+            //foreach (var car in carManager.GetAll())
+            //{
+            //    Console.WriteLine(car.Description);
+            //}
+            //Console.WriteLine(carManager.GetById(3).DailyPrice);
+        }
 
-            Car araba1 = new Car() { BrandId=2,ColorId=2,ModelYear=2021,Description="Son Model Bebek Gibi Araba4",DailyPrice=10 };
+        private static void ColorTest()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
 
+            //foreach (var color in colorManager.GetAll())
+            //{
+            //    Console.WriteLine(color.Name);
+            //}
 
-            //carManager.Add(car);
-            //carManager.Delete(car);
-            //
-            //carManager.Add(car);
-            //carManager.Update(new Car() { Id = 6, BrandId = 7, ColorId = 3, ModelYear = 2000, DailyPrice = 5, Description = "Dosta Gider2" });
-            //
+            //Console.WriteLine(colorManager.GetById(1).Name);
 
-            //List<Car> result = carManager.GetById(4);
+            //colorManager.Add(new Color() { Name = "Mor" });
+            //colorManager.Update(new Color() { Id=3, Name = "UpdatedMor" });
+            //colorManager.Delete(new Color() { Id = 4});
+        }
 
-            carManager.Add(araba1);
-            //carManager.Delete(araba1);
+        private static void BrandTest()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
 
+            //foreach (var brand in brandManager.GetAll())
+            //{
+            //    Console.WriteLine(brand.Name);
+            //}
+
+            //Console.WriteLine(brandManager.GetById(1).Name);
+
+            //brandManager.Add(new Brand() { Name = "Audi" });
+            //brandManager.Update(new Brand() { Id=3 ,Name = "Lamborgini" });
+            //brandManager.Delete(new Brand() { Id = 7, Name = "Lamborgini" });
+            
+            
             
         }
     }

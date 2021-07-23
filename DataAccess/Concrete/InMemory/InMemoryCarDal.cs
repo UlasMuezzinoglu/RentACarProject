@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryCarDal : IEntityRepository<Car>
+    public class InMemoryCarDal : ICarDal
     {
         List<Car> _cars;
 
@@ -21,6 +21,7 @@ namespace DataAccess.Concrete.InMemory
                 new Car() {Id=3,BrandId=4,ColorId=4,ModelYear=2021,DailyPrice=350,Description="Doktordan temiz" },
                 new Car() {Id=4,BrandId=2,ColorId=3,ModelYear=2013,DailyPrice=120,Description="Programcıdan Hafif Kırık" }
             };
+            Console.WriteLine("Sistem InMemory Alternatifine Geçti... SOLİD BEBEK GİBİ ÇALIŞIYOR YANİ HEEE");
         }
 
 
@@ -35,6 +36,7 @@ namespace DataAccess.Concrete.InMemory
 
             carToDelete = _cars.SingleOrDefault(item => item.Id == car.Id);
             _cars.Remove(carToDelete);
+            
         }
 
         public Car Get(Expression<Func<Car, bool>> filter)

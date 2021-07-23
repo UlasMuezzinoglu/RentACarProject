@@ -58,5 +58,17 @@ namespace Business.Concrete
         {
             return _carDal.GetAll(car => car.ColorId == id);
         }
+
+        public void Update(Car car)
+        {
+            _carDal.Update(car);
+            Console.WriteLine("Araba Güncellendi");
+        }
+
+        public Car GetById(int id)
+        {
+            return _carDal.Get(car => car.Id == id);
+            
+        }
     }
 }
