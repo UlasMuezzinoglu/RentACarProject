@@ -31,7 +31,7 @@ namespace Business.Concrete
             {
                 _brandDal.Delete(brand);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
                 Console.WriteLine("kanka olmayan birşeyi silemezsin kiiiii o nesne artık yoğğğ... o aslında yoooğğğğğ");
@@ -55,7 +55,7 @@ namespace Business.Concrete
             {
                 _brandDal.Update(brand);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
                 Console.WriteLine("kanka olmayan birşeyi Güncelleyemezsin kiiiii o nesne artık yoğğğ... o aslında yoooğğğğğ");

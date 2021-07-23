@@ -22,16 +22,16 @@ namespace ConsoleUI
             //carManager.Add(new Car() { BrandId = 1, ColorId = 2, ModelYear = 2019, DailyPrice = 180.00m, Description = "Programcıdan Hafif Kırık" });
             //carManager.Update(new Car() { Id = 1 ,BrandId = 1, ColorId = 2, ModelYear = 2019, DailyPrice = 180.00m, Description = "Bebek Gibi Araba" });
             //carManager.Delete(new Car() { Id = 2});
-            //foreach (var car in carManager.GetAll())
-            //{
-            //    Console.WriteLine(car.Description);
-            //}
-            //Console.WriteLine(carManager.GetById(3).DailyPrice);
+            foreach (var car in carManager.GetAll())
+            {
+                Console.WriteLine(car.Description);
+            }
+            Console.WriteLine(carManager.GetById(3).DailyPrice);
         }
 
         private static void ColorTest()
         {
-            ColorManager colorManager = new ColorManager(new EfColorDal());
+            //ColorManager colorManager = new ColorManager(new EfColorDal());
 
             //foreach (var color in colorManager.GetAll())
             //{
@@ -57,11 +57,11 @@ namespace ConsoleUI
             //Console.WriteLine(brandManager.GetById(1).Name);
 
             //brandManager.Add(new Brand() { Name = "Audi" });
-            //brandManager.Update(new Brand() { Id=3 ,Name = "Lamborgini" });
-            //brandManager.Delete(new Brand() { Id = 7, Name = "Lamborgini" });
-            
-            
-            
+            //brandManager.Update(new Brand() { Id=9 ,Name = "Lamborgini2" });
+            //brandManager.Delete(new Brand() { Id = 9, Name = "Lamborgini" });
+
+
+
         }
     }
 }
