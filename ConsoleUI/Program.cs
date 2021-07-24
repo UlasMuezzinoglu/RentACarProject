@@ -21,7 +21,7 @@ namespace ConsoleUI
 
         private static void CarTest()
         {
-            CarManager carManager = new CarManager(new EfCarDal());
+            //CarManager carManager = new CarManager(new EfCarDal());
             //carManager.Add(new Car() { BrandId = 1, ColorId = 2, ModelYear = 2019, DailyPrice = 180.00m, Description = "Programcıdan Hafif Kırık" });
             //carManager.Update(new Car() { Id = 1 ,BrandId = 1, ColorId = 2, ModelYear = 2019, DailyPrice = 180.00m, Description = "Bebek Gibi Araba" });
             //carManager.Delete(new Car() { Id = 2});
@@ -30,11 +30,12 @@ namespace ConsoleUI
             //    Console.WriteLine(car.Description);
             //}
             //Console.WriteLine(carManager.GetById(3).DailyPrice);
-
-            foreach (var c in carManager.GetCarDetailsDto())
-            {
-                Console.WriteLine(c.Id+" "+c.BrandName+" "+c.ColorName+" "+c.DailyPrice+" ");
-            }
+            //var result = carManager.GetCarDetailsDto();
+            //foreach (var c in result.Data)
+            //{
+            //    Console.WriteLine(c.Id+" "+c.BrandName+" "+c.ColorName+" "+c.DailyPrice+" ");
+            //}
+            //Console.WriteLine(result.Message);
         }
 
         private static void ColorTest()
