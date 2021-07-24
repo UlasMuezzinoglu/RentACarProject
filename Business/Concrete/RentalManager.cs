@@ -14,6 +14,7 @@ namespace Business.Concrete
     public class RentalManager : IRentalService
     {
         IRentalDal _rentalDal;
+        
 
         public RentalManager(IRentalDal rentalDal)
         {
@@ -21,9 +22,8 @@ namespace Business.Concrete
         }
         public IResult Add(Rental rental)
         {
-            var addedRental = _rentalDal.GetAll(r => r.CarId == rental.CarId);
             
-            if (addedRental == null)
+            if (isThatCarDeliveried(rental.CarId))
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
@@ -68,6 +68,15 @@ namespace Business.Concrete
 
                 return new ErrorResult(Messages.RentalCantUpdated);
             }
+        }
+        public bool isThatCarDeliveried(int id)
+        {
+            var result = _rentalDal.Get(r => r.CarId ==id && r.ReturnDate==null); // parametre olarak aldıgın id ye göre rentali getir. ve gelen ilanın returndate i boş olanı getir
+            if (result == null)
+            {
+                return true; // demek ki hiçbir ilan gelmemiş, demek ki return tarihi boş değil yani araç teslim edilmiş.
+            }
+            return false;
         }
     }
 }

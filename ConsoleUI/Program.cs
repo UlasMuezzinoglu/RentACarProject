@@ -11,11 +11,24 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            BrandTest();
-            ColorTest();
-            CarTest();
+            //BrandTest();
+            //ColorTest();
+            //CarTest();
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            Rental rental = new Rental();
+            Rental rental2 = new Rental();
+            //rental.CarId = 3;
+            //rental.CustomerId = 2;
+            //rental.RentDate = new DateTime(2015, 12, 25);
+            //rental.ReturnDate = new DateTime(2016, 12, 25);
+            rental2.CarId = 1002;
+            rental2.CustomerId = 4;
+            rental2.RentDate = new DateTime(2015, 12, 25);
 
             
+            
+            rentalManager.Add(rental2);
+
 
         }
 

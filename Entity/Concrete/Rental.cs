@@ -13,6 +13,6 @@ namespace Entity.Concrete
         public int CarId { get; set; }
         public int CustomerId { get; set; }
         public DateTime RentDate { get; set; }
-        public DateTime ReturnDate { get; set; }
+        public string ReturnDate { get; set; }
     }
 }
