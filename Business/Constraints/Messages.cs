@@ -30,16 +30,43 @@ namespace Business.Constraints
         public static string CarAdded = "Araba Başarı ile Eklendi";
         public static string CarDescInvalidLetterLenght = "Araç Açıklaması 2 Karakterden Büyük Olmalıdır.\n ";
         public static string CarPriceInvalidCost = "Araç Günlük Fiyatı 0 liradan den Fazla Olmalıdır.";
-        internal static string CarDeleted = "Araba Başarı ile Silindi";
-        internal static string CarCantDeleted = "Araba Silinemedi... Böyle Birşey Artık Olmayabilir.";
-        internal static string CarListed = "Araba Başarı ile Getirildi";
-        internal static string CarsListed = "Araba Başarı ile Listelendi";
-        internal static string CarListedByBrand = "Araba Başarı ile Listelendi";
-        internal static string CarListedByColor = "Araba Başarı ile Listelendi";
-        internal static string CarUpdated = "Araba Başarı ile Güncellendi";
-        internal static string CarCantUpdated = "Araba Güncellenemedi... Böyle Birşey Artık Olmayabilir.";
-        internal static string CarsListedDetailDto = "Arabalar Başarı ile Listelendi";
-
+        public static string CarDeleted = "Araba Başarı ile Silindi";
+        public static string CarCantDeleted = "Araba Silinemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string CarListed = "Araba Başarı ile Getirildi";
+        public static string CarsListed = "Araba Başarı ile Listelendi";
+        public static string CarListedByBrand = "Araba Başarı ile Listelendi";
+        public static string CarListedByColor = "Araba Başarı ile Listelendi";
+        public static string CarUpdated = "Araba Başarı ile Güncellendi";
+        public static string CarCantUpdated = "Araba Güncellenemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string CarsListedDetailDto = "Arabalar Başarı ile Listelendi";
         // End of Car Manager Messages
+        // User Manager Messages
+        public static string UserAdded = "Kullanıcı Başarı ile Eklendi";
+        public static string UserDeleted = "Kullanıcı Başarı ile Silindi";
+        public static string UserCantDeledet =  "Kullanıcı Silinemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string UserUpdated = "Kullanıcı Başarı ile Güncellendi";
+        public static string UserCantUpdated = "Kullanıcı Güncellenemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string UsersListed = "Kullanıcılar Başarı ile Listelendi";
+        public static string UserListed = "Kullanıcı Başarı ile Getirildi";
+        // End of User Manager Messages
+        // Customer Manager Messages
+        public static string CustomerAdded = "Müşteri Başarı ile Eklendi";
+        public static string CustomerDeleted = "Müşteri Başarı ile Silindi";
+        public static string CustomerCantDeledet = "Müşteri Silinemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string CustomerUpdated = "Müşteri Başarı ile Güncellendi";
+        public static string CustomerCantUpdated = "Müşteri Güncellenemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string CustomersListed = "Müşteriler Başarı ile Listelendi";
+        public static string CustomerListed = "Müşteri Başarı ile Getirildi";
+        // End of Customer Manager Messages
+        // Rental Manager Messages
+        public static string RentalAdded = "Kiralama Başarı ile Eklendi";
+        public static string RentalDeleted = "Kiralama Başarı ile Silindi";
+        public static string RentalCantDeledet = "Kiralama Silinemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string RentalsListed = "Kiralamalar Başarı ile Listelendi";
+        public static string RentalListed = "Kiralama Başarı ile Getirildi";
+        public static string RentalUpdated = "Kiralama Başarı ile Güncellendi";
+        public static string RentalCantUpdated = "Kiralama Güncellenemedi... Böyle Birşey Artık Olmayabilir.";
+        public static string RentalProblem = "Araç Kiralanamadı... Araç yok";
+        // End of Rental Manager Messages
     }
 }
