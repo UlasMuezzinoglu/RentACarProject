@@ -19,9 +19,11 @@ namespace Business.Constraints
         public static string BrandCantUpdated = "Marka Güncellenemedi... Böyle Birşey Artık Olmayabilir";
         // End of Brand Manager Messages
         // Color Manager Messages
+        public static string ColorAdded = "Renk Başarı ile Eklendi";
         public static string ColorDeleted = "Renk Başarı ile Silindi";
         public static string ColorCantDeleted = "Renk Silinemedi... Böyle Birşey Artık Olmayabilir.";
         public static string ColorsListed = "Renkler Başarı ile Listelendi";
+        public static string ColorNotFound = "Renk Bulunamadı";
         public static string ColorListed = "Renk Başarı ile Getirildi";
         public static string ColorUpdated = "Renk Başarı ile Güncellendi";
         public static string ColorCantUpdated = "Renk Güncellenemedi... Böyle Birşey Artık Olmayabilir.";

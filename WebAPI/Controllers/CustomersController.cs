@@ -11,36 +11,18 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandsController : ControllerBase
+    public class CustomersController : ControllerBase
     {
+        ICustomerService _customerService;
 
-        //Loosely Coupled
-        //Naming Convertion
-        //IoC Container -- Inversion of Control
-        IBrandService _brandService;
-        public BrandsController(IBrandService brandService)
+        public CustomersController(ICustomerService customerService)
         {
-            _brandService = brandService;
+            _customerService = customerService;
         }
         [HttpGet("getall")]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
-            var result = _brandService.GetAll();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-
-            //return NotFound(result);
-            return BadRequest(result);
-            //return Unauthorized(result);
-        }
-        [HttpPost("add")]
-        public IActionResult Add(Brand brand)
-        {
-            var result = _brandService.Add(brand);
-
+            var result = _customerService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -48,30 +30,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
+        public IActionResult Get(int id)
         {
-            var result = _brandService.GetById(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPut("updatebrand")]
-        public IActionResult Update(Brand brand)
-        {
-            var result = _brandService.Update(brand);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-        [HttpDelete("deletebrand")]
-        public IActionResult Delete(Brand brand)
-        {
-            var result = _brandService.Delete(brand);
+            var result = _customerService.GetByUserId(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -80,5 +41,35 @@ namespace WebAPI.Controllers
         }
 
 
+        [HttpPost("add")]
+        public IActionResult Add(Customer customer)
+        {
+            var result = _customerService.Add(customer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpPut("update")]
+        public IActionResult Update(Customer customer)
+        {
+            var result = _customerService.Update(customer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpDelete("delete")]
+        public IActionResult Delete(Customer customer)
+        {
+            var result = _customerService.Delete(customer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

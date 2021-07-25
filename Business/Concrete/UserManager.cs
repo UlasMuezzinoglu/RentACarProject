@@ -51,7 +51,7 @@ namespace Business.Concrete
         {
             try
             {
-                _userDal.Delete(user);
+                _userDal.Update(user);
                 return new SuccessResult(Messages.UserUpdated);
             }
             catch (Exception)
