@@ -23,7 +23,7 @@ namespace Business.Concrete
         public IResult Add(Rental rental)
         {
             
-            if (isThatCarDeliveried(rental.CarId))
+            if (IsThatCarDeliveried(rental.CarId))
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
@@ -69,9 +69,9 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.RentalCantUpdated);
             }
         }
-        public bool isThatCarDeliveried(int id)
+        public bool IsThatCarDeliveried(int id)
         {
-            var result = _rentalDal.Get(r => r.CarId ==id && r.ReturnDate==null); // parametre olarak aldıgın id ye göre rentali getir. ve gelen ilanın returndate i boş olanı getir
+            var result = _rentalDal.Get(r => r.CarId ==id && r.ReturnDate==null); // parametre olarak aldıgın id ye göre rentali getir. ve gelen kayıt'ın returndate i boş ise getir
             if (result == null)
             {
                 return true; // demek ki hiçbir ilan gelmemiş, demek ki return tarihi boş değil yani araç teslim edilmiş.
