@@ -29,13 +29,14 @@ namespace Business.Concrete
 
         public IResult Add(CarImage carImage, IFormFile file)
         {
-            //IResult result = BusinessRules.Run(
-            //    IsOverflowCarImageCount(carImage.CarId));
+            IResult result = BusinessRules.Run(
+                IsOverflowCarImageCount(carImage.CarId));
 
-           // if (!result.Success)
-            //{
-            //    return new ErrorResult(result.Message);
-           // }
+            if (result != null)
+            {
+                return new ErrorResult(result.Message);
+            }
+
             var imageResult = _fileHelper.Upload(file);
             if (!imageResult.Success)
             {
@@ -47,21 +48,27 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarImageAdded);
         }
 
-        public IResult Delete(CarImage carImage, IFormFile file)
-        {
-            var imageDelete = _carImageDal.Get(c => c.Id == carImage.Id);
-            if (imageDelete == null)
-            {
-                return new ErrorResult(Messages.CarImageNotFound);
-            }
-            _carImageDal.Delete(carImage);
-
-            return new SuccessResult(Messages.CarImageDeleted);
-        }
+       
 
         public IResult Delete(CarImage carImage)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var imageDelete = _carImageDal.Get(c => c.Id == carImage.Id);
+                if (imageDelete == null)
+                {
+                    return new ErrorResult(Messages.CarImageNotFound);
+                }
+                _carImageDal.Delete(carImage);
+
+                return new SuccessResult(Messages.CarImageDeleted);
+            }
+            catch (Exception)
+            {
+
+                return new ErrorResult("Resim Silinemedi");
+            }
+            
         }
 
         public IDataResult<List<CarImage>> GetAll()
@@ -103,14 +110,17 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarImageUpdated);
         }
 
-        private IResult IsOverflowCarImageCount(int carId)
+        public IResult IsOverflowCarImageCount(int carId)
         {
-            var result = _carImageDal.GetAll(p => p.CarId == carId).Count;
-            if (result > 5)
+            var result = _carImageDal.GetAll(im => im.CarId == carId);
+
+            if (result.Count >= 5)
             {
                 return new ErrorResult(Messages.OverflowCarImageMessage);
             }
+
             return new SuccessResult();
+            
         }
         private IResult ShowDefaultImage(int carId)
         {
