@@ -70,5 +70,13 @@ namespace Business.Constraints
         public static string RentalCantUpdated = "Kiralama Güncellenemedi... Böyle Birşey Artık Olmayabilir.";
         public static string RentalProblem = "Araç Kiralanamadı... Araç yok";
         // End of Rental Manager Messages
+        // Car Image Manager Messages
+        public static string OverflowCarImageMessage = "Aracın 5 ten fazla Resmi olamaz";
+        public static string CarImageAdded = "Araç Resmi Başarı İle Eklendi";
+        public static string CarImageNotFound = "Resim Bulunamadı";
+        public static string CarImageDeleted = "Araç Resmi Silindi";
+        public static string CarImagesListed = "Araç Resimleri Listeleni";
+        public static string CarImageListed = "Araç Resimi Getirildi";
+        internal static string CarImageUpdated = "Araç Resmi Güncellendi";
     }
 }
