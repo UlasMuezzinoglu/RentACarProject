@@ -1,6 +1,6 @@
 ﻿using Core.Entities;
 
-namespace Core.Concrete
+namespace Core.Entities.Concrete
 {
     public class UserOperationClaim : IEntity
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Concrete
+namespace Core.Entities.Concrete
 {
     public class User: IEntity
     {

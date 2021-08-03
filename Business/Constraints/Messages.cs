@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -77,6 +78,7 @@ namespace Business.Constraints
         public static string CarImageDeleted = "Araç Resmi Silindi";
         public static string CarImagesListed = "Araç Resimleri Listeleni";
         public static string CarImageListed = "Araç Resimi Getirildi";
-        internal static string CarImageUpdated = "Araç Resmi Güncellendi";
+        public static string CarImageUpdated = "Araç Resmi Güncellendi";
+        public static string AuthorizationDenied = "Yetkiniz Yok";
     }
 }
