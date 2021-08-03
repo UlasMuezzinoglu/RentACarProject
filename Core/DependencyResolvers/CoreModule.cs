@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Core.DependencyResolvers
             serviceCollction.AddMemoryCache();
             serviceCollction.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             serviceCollction.AddSingleton<ICacheManager, MemoryCacheManager>();
+            serviceCollction.AddSingleton<Stopwatch>();
 
         }
     }
