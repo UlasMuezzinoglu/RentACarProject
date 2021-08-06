@@ -51,14 +51,25 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        //public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        //{
+        //    return new SuccessDataResult<List<Car>>(_carDal.GetAll(car => car.BrandId == id), Messages.CarListedByBrand);
+        //}
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(car => car.BrandId == id), Messages.CarListedByBrand);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtosWithBrandId(id), Messages.CarListedByBrand);
         }
-
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsDto()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(car => car.ColorId == id), Messages.CarListedByColor);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.CarsListedDetailDto);
+        }
+        //public IDataResult<List<Car>> GetCarsByColorId(int id)
+        //{
+        //    return new SuccessDataResult<List<Car>>(_carDal.GetAll(car => car.ColorId == id), Messages.CarListedByColor);
+        //}
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtosWithColorId(id), Messages.CarListedByColor);
         }
 
         public IResult Update(Car car)
@@ -81,9 +92,6 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<CarDetailDto>> GetCarDetailsDto()
-        {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.CarsListedDetailDto);
-        }
+        
     }
 }

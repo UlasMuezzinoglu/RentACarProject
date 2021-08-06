@@ -6,6 +6,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,10 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.RentalCantDeledet);
             }
         }
+        public IDataResult<List<RentalDetailDto>> GetRentalDetails()
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(), Messages.RentalListed);
+        }
 
         public IDataResult<List<Rental>> GetAll()
         {
@@ -63,7 +68,7 @@ namespace Business.Concrete
 
         public IDataResult<Rental> GetByCustomerId(int id)
         {
-            return new SuccessDataResult<Rental>(_rentalDal.Get(rental => rental.CustomerId == id), Messages.RentalListed);
+            return new SuccessDataResult<Rental>(_rentalDal.Get(rental => rental.UserId == id), Messages.RentalListed);
         }
 
         public IResult Update(Rental rental)

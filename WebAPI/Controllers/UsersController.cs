@@ -20,11 +20,21 @@ namespace WebAPI.Controllers
         {
             _userService = userService;
         }
+        //[HttpGet("getall")]
+        //public User GetByMail( string email)
+        //{
+        //    var result = _userService.GetByMail(email);
+        //    //if (result.Success)
+        //    //{
+        //    //    return Ok(result);
+        //    //}
+        //    //return BadRequest(result);
+        //    return result;
+        //}
 
-        
-        
-        
 
-        
+
+
+
     }
 }
