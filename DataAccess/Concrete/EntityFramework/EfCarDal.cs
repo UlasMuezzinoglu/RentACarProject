@@ -23,9 +23,18 @@ namespace DataAccess.Concrete.EntityFramework
                              on ca.ColorId equals co.Id
                              join br in context.Brands
                              on ca.BrandId equals br.Id
+                             //join ci in context.CarImages
+                             //on ca.Id equals ci.CarId
                              select new CarDetailDto
                              {
-                                 Id = ca.Id, BrandName = br.Name, ColorName = co.Name, DailyPrice = ca.DailyPrice, Description = ca.Description, ModelYear = ca.ModelYear
+                                 Id = ca.Id,
+                                 BrandName = br.Name,
+                                 ColorName = co.Name,
+                                 DailyPrice = ca.DailyPrice,
+                                 Description = ca.Description,
+                                 ModelYear = ca.ModelYear,
+                                 ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
+                                 //ReturnDate = (from y in context.Rentals where y.CarId == ca.Id select y.ReturnDate).FirstOrDefault()
                              };
                 return result.ToList();
             }
@@ -104,5 +113,32 @@ namespace DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
+        //public List<CarDetailDto> GetRentableCars()
+        //{
+        //    using (RentACarContext context = new RentACarContext())
+        //    {
+        //        var result = from ca in context.Cars
+        //                     join co in context.Colors
+        //                     on ca.ColorId equals co.Id
+        //                     join br in context.Brands
+        //                     on ca.BrandId equals br.Id
+        //                     //join re in context.Rentals
+        //                     //on ca.Id equals re.Id
+        //                     select new CarDetailDto
+        //                     {
+        //                         Id = ca.Id,
+        //                         BrandName = br.Name,
+        //                         ColorName = co.Name,
+        //                         DailyPrice = ca.DailyPrice,
+        //                         Description = ca.Description,
+        //                         ModelYear = ca.ModelYear,
+        //                         ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
+        //                         ReturnDate = (from y in context.Rentals where y.CarId == ca.Id select y.ReturnDate).LastOrDefault()
+
+        //                     };
+
+        //        return result.ToList();
+        //    }
+        //}
     }
 }

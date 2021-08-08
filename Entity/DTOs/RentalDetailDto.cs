@@ -16,7 +16,7 @@ namespace Entity.DTOs
         public int ModelYear { get; set; }
         public decimal DailyPrice { get; set; }
         public DateTime RentDate { get; set; }
-        public string ReturnDate { get; set; }
+        public DateTime ReturnDate { get; set; }
 
 
     }
