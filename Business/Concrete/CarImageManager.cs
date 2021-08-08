@@ -85,6 +85,9 @@ namespace Business.Concrete
 
             }
             return new ErrorDataResult<List<CarImage>>("Hata");
+
+
+
         }
 
         public IDataResult<CarImage> GetById(int id)
@@ -143,6 +146,10 @@ namespace Business.Concrete
                 return new ErrorDataResult<List<CarImage>>("Hata");
             }
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId).ToList());
+
+
+
+
         }
     }
 }
