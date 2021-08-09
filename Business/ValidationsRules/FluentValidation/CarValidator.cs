@@ -16,6 +16,7 @@ namespace Business.ValidationsRules.FluentValidation
             RuleFor(car => car.DailyPrice).GreaterThan(0);
             RuleFor(car => car.ModelYear).GreaterThan(2000);
             RuleFor(car => car.ModelYear).NotEmpty();
+            RuleFor(car => car.Description).Length(1, 350);
             
 
         }
