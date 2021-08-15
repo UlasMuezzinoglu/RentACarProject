@@ -90,7 +90,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = co.Name,
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
-                                 ModelYear = ca.ModelYear
+                                 ModelYear = ca.ModelYear,
+                                 ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
+                                 ReturnDate = (from y in context.Rentals orderby y.ReturnDate descending where y.CarId == ca.Id select y.ReturnDate.ToString("MM/dd/yyyy")).FirstOrDefault()
+
                              };
                 
                 return result.ToList();
@@ -117,7 +120,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = co.Name,
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
-                                 ModelYear = ca.ModelYear
+                                 ModelYear = ca.ModelYear,
+                                 ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
+                                 ReturnDate = (from y in context.Rentals orderby y.ReturnDate descending where y.CarId == ca.Id select y.ReturnDate.ToString("MM/dd/yyyy")).FirstOrDefault()
+
                              };
 
                 return result.ToList();
@@ -140,7 +146,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = co.Name,
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
-                                 ModelYear = ca.ModelYear
+                                 ModelYear = ca.ModelYear,
+                                 ReturnDate = (from y in context.Rentals orderby y.ReturnDate descending where y.CarId == ca.Id select y.ReturnDate.ToString("MM/dd/yyyy")).FirstOrDefault()
+
+
                              };
 
                 return result.ToList();

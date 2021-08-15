@@ -51,6 +51,18 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpPost("addmultiple")]
+        public IActionResult AddMultiple(Rental[] rentals)
+        {
+            var result = _rentalService.AddMultiple(rentals);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpPut("update")]
         public IActionResult Update(Rental rental)
         {

@@ -16,6 +16,9 @@ namespace Business.Abstract
         IDataResult<Rental> GetByCustomerId(int id);
 
         IResult Add(Rental rental);
+
+        IResult AddMultiple(Rental[] rentals);
+
         IResult Delete(Rental rental);
         IResult Update(Rental rental);
 

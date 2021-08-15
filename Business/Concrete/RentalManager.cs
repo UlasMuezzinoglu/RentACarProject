@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constraints;
 using Business.ValidationsRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -102,20 +103,64 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.RentalCantUpdated);
             }
         }
+
+        //[CacheRemoveAspect("ICarService.Get")]
+        public IResult AddMultiple(Rental[] rentals)
+        {
+            //bool hataliMi = false;
+
+            List<Rental> successRentals = new List<Rental>();
+
+            foreach (var rental in rentals)
+            {
+                var results = _rentalDal.GetAll(re => re.CarId == rental.CarId);
+
+                foreach (var result in results)
+                {
+                    if ((rental.RentDate >= result.RentDate && rental.RentDate <= result.ReturnDate) || (rental.ReturnDate >= result.RentDate && rental.RentDate <= result.ReturnDate))
+                    {
+                        return new ErrorResult("Kiralamaz aga");
+                    }
+
+                }
+                if (rental.ReturnDate <= rental.RentDate)
+                {
+                    return new ErrorResult("Aga sen Nolan mısın arabayı bugün alıp, dün teslim ediyorsun ?");
+                }
+
+                successRentals.Add(rental);
+                
+            }
+            foreach (var successRental in successRentals)
+            {
+                _rentalDal.Add(successRental);
+            }
+            return new SuccessResult(Messages.RentalAdded);
+
+        }
+
+
+
+
+
+
+
+
+
         //public IResult IsThatCarDeliveried(int id)
         //{
-            //var result = _rentalDal.Get(r => r.CarId ==id && r.ReturnDate==null); // parametre olarak aldıgın id ye göre rentali getir. ve gelen kayıt'ın returndate i boş ise getir
-            //if (result == null)
-            //{
-            //    return new SuccessResult(); // demek ki hiçbir ilan gelmemiş, demek ki return tarihi boş değil yani araç teslim edilmiş.
-            //}
-            // return new ErrorResult("Araba Teslim Edilmemiş bu şartlar altında araba kiralanamaz");
+        //var result = _rentalDal.Get(r => r.CarId ==id && r.ReturnDate==null); // parametre olarak aldıgın id ye göre rentali getir. ve gelen kayıt'ın returndate i boş ise getir
+        //if (result == null)
+        //{
+        //    return new SuccessResult(); // demek ki hiçbir ilan gelmemiş, demek ki return tarihi boş değil yani araç teslim edilmiş.
+        //}
+        // return new ErrorResult("Araba Teslim Edilmemiş bu şartlar altında araba kiralanamaz");
 
 
-           // var result = _rentalDal.Get(r => r.CarId == id && r.ReturnDate == null);
+        // var result = _rentalDal.Get(r => r.CarId == id && r.ReturnDate == null);
 
 
 
-       // }
+        // }
     }
 }

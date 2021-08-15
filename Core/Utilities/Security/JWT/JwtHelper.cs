@@ -36,7 +36,11 @@ namespace Core.Utilities.Security.JWT
             return new AccessToken
             {
                 Token = token,
-                Expiration = _accessTokenExpiration
+                Expiration = _accessTokenExpiration,
+                UserId = user.Id,           // ToDo
+                FirstName = user.FirstName, // normalde bunlar burada olmamalı burası core katmanı...
+                LastName = user.LastName    // gerizekalı değiliz refactor edicez bi ara 
+                
             };
 
         }
