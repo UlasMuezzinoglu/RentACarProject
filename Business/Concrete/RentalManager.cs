@@ -62,6 +62,7 @@ namespace Business.Concrete
 
         }
 
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Delete(Rental rental)
         {
             try
@@ -104,7 +105,7 @@ namespace Business.Concrete
             }
         }
 
-        //[CacheRemoveAspect("ICarService.Get")]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult AddMultiple(Rental[] rentals)
         {
             //bool hataliMi = false;

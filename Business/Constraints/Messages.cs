@@ -80,5 +80,7 @@ namespace Business.Constraints
         public static string CarImageListed = "Araç Resimi Getirildi";
         public static string CarImageUpdated = "Araç Resmi Güncellendi";
         public static string AuthorizationDenied = "Yetkiniz Yok";
+        public static string paymentAdded = "Ödeme Eklendi";
+        public static string paymentDeleted = "Ödeme Silindi";
     }
 }
