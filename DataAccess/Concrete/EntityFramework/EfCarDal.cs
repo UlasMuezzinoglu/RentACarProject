@@ -34,6 +34,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = co.Name,
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
+                                 Model = ca.Model,
                                  ModelYear = ca.ModelYear,
                                  ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
                                  //ReturnDate = re.ReturnDate
@@ -65,6 +66,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
                                  ModelYear = ca.ModelYear,
+                                 Model = ca.Model,
                                  ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
                                  //ReturnDate = re.ReturnDate
                                  ReturnDate = (from y in context.Rentals orderby y.ReturnDate descending where y.CarId == ca.Id select y.ReturnDate.ToString("MM/dd/yyyy")).FirstOrDefault()
@@ -91,6 +93,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
                                  ModelYear = ca.ModelYear,
+                                 Model = ca.Model,
                                  ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
                                  ReturnDate = (from y in context.Rentals orderby y.ReturnDate descending where y.CarId == ca.Id select y.ReturnDate.ToString("MM/dd/yyyy")).FirstOrDefault()
 
@@ -121,6 +124,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
                                  ModelYear = ca.ModelYear,
+                                 Model = ca.Model,
                                  ImagePath = (from x in context.CarImages where x.CarId == ca.Id select x.ImagePath).FirstOrDefault(),
                                  ReturnDate = (from y in context.Rentals orderby y.ReturnDate descending where y.CarId == ca.Id select y.ReturnDate.ToString("MM/dd/yyyy")).FirstOrDefault()
 
@@ -147,6 +151,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = ca.DailyPrice,
                                  Description = ca.Description,
                                  ModelYear = ca.ModelYear,
+                                 Model = ca.Model,
                                  ReturnDate = (from y in context.Rentals orderby y.ReturnDate descending where y.CarId == ca.Id select y.ReturnDate.ToString("MM/dd/yyyy")).FirstOrDefault()
 
 
